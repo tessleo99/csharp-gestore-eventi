@@ -20,8 +20,6 @@ Conferenza.BookingSeats(seatsBooked);
 Console.Write("Vuoi disdire dei posti (si/no)? ");
 string cancelSeats = Console.ReadLine();
 
-
-
     while (cancelSeats == "si")
     {
         Console.Write("Quanti posti vuoi disdire? ");
