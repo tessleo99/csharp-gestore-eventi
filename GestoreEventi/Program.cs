@@ -13,12 +13,27 @@ int seatsMax = int.Parse(Console.ReadLine());
 
 Event Conferenza = new Event(eventName, eventDate, seatsMax);
 
-Console.WriteLine("Quanti posti desideri prenotare? ");
+Console.Write("Quanti posti desideri prenotare? ");
 int seatsBooked = int.Parse(Console.ReadLine());
-
 Conferenza.BookingSeats(seatsBooked);
 
+Console.Write("Vuoi disdire dei posti (si/no)? ");
+string cancelSeats = Console.ReadLine();
+
+
+
+    while (cancelSeats == "si")
+    {
+        Console.Write("Quanti posti vuoi disdire? ");
+        int numberCancel = int.Parse(Console.ReadLine());
+        Conferenza.CancelSeatsReservation(numberCancel);
+        Console.Write("Vuoi disdire dei posti (si/no)? ");
+        cancelSeats = Console.ReadLine();
+        Console.WriteLine("Va bene!");
+    }
+
 Console.WriteLine(Conferenza.ToString());
+
 
 
 
