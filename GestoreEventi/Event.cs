@@ -21,7 +21,7 @@ namespace GestoreEventi
             if (eventName == "")
             {
                 throw new Exception("Inserisci un nome per l'evento!");
-                Console.Write("Reinserisci un nome");
+                
             }
             this.eventName = eventName;
 

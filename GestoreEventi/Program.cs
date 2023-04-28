@@ -42,6 +42,12 @@ EventScheduleUser.listEventSameDate(eventScheduleDate);
 
 Console.WriteLine(EventScheduleUser.ToString());
 
+
+
+
+
+//EventScheduleUser.EmptyListOfEvent();
+
 //Console.Write("Che nome ha l'evento? ");
 //string eventName = Console.ReadLine();
 
