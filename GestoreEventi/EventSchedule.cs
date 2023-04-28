@@ -6,7 +6,83 @@ using System.Threading.Tasks;
 
 namespace GestoreEventi
 {
-    internal class EventSchedule
+    public class EventSchedule
     {
+        //ATTRIBUTI
+        private string title;
+        private List<Event> events;
+
+        //COSTRUTTORE
+        public EventSchedule(string title)
+        {
+            this.title = title;
+            this.events = new List<Event>();
+        }
+
+        //GETTERS
+        public List<Event> GetEventList()
+        {
+            return events;
+        }
+
+        //SETTERS
+
+        //METODI
+
+        //add event
+        public void AddEvent(Event newEvent)
+        {
+            this.events.Add(newEvent);
+        }
+
+        //lista eventi con la stessa data
+
+        public void listEventSameDate(string eventDateString)
+            {
+            DateTime eventDate = DateTime.Parse(eventDateString);
+            List<Event> eventSameDate = new List<Event>();
+
+                foreach (Event eventScan in events)
+                {
+                    if (eventScan.GetEventDate() == eventDate)
+                    {
+                        eventSameDate.Add(eventScan);
+                    }
+                }
+
+                foreach (Event eventScan in eventSameDate)
+                {
+                    Console.WriteLine(eventDate + " - " + eventScan.GetEventName());
+                }
+        }
+        
+
+        public override string ToString()
+        {
+            string stringa = "------------ LISTA EVENTI ------------\n";
+            for (int i = 0; i < events.Count; i++)
+            {
+                stringa += $"EVENTO {i + 1}: \n";
+                Event eventOfList = events[i];
+                stringa += eventOfList.ToString();
+                stringa += "\n";
+            }
+            stringa += "--------------------------------------";
+
+            return stringa;
+        }
+
+        public int GetNumberOfEvent ()
+        {
+            return this.events.Count;
+        }
+
+        public void EmptyListOfEvent()
+        {
+            this.events.Clear();
+        }
+
+
     }
+
 }
