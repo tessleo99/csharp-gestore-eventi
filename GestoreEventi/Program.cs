@@ -2,11 +2,25 @@
 using GestoreEventi;
 
 
+Console.Write("Che nome ha l'evento? ");
+string eventName = Console.ReadLine();
 
-Event Conferenza = new Event("Pianeta Terra", "12/06/2023", 150);
+Console.Write("Inserisci la data dell'evento (formato: dd/MM/yyyy) :");
+string eventDate = Console.ReadLine();
+
+Console.Write("Quante persone possono partecipare all'evento? ");
+int seatsMax = int.Parse(Console.ReadLine());
+
+Event Conferenza = new Event(eventName, eventDate, seatsMax);
 
 Console.WriteLine(Conferenza.ToString());
 
-Conferenza.BookingSeats(150);
 
-Conferenza.CancelSeatsReservation(10);
+
+//Event Conferenza = new Event("Pianeta Terra", "12/06/2023", 150);
+
+//Console.WriteLine(Conferenza.ToString());
+
+//Conferenza.BookingSeats(150);
+
+//Conferenza.CancelSeatsReservation(10);
