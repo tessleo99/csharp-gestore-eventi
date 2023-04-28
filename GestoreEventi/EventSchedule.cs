@@ -52,14 +52,15 @@ namespace GestoreEventi
 
                 foreach (Event eventScan in eventSameDate)
                 {
-                    Console.WriteLine(eventDate + " - " + eventScan.GetEventName());
+                    Console.WriteLine(eventDate.ToString("gg/MM/yyyy") + " - " + eventScan.GetEventName());
                 }
         }
         
+      
 
         public override string ToString()
         {
-            string stringa = "------------ LISTA EVENTI ------------\n";
+            string stringa = $"------------ LISTA EVENTI {this.title}------------\n";
             for (int i = 0; i < events.Count; i++)
             {
                 stringa += $"EVENTO {i + 1}: \n";
@@ -67,7 +68,7 @@ namespace GestoreEventi
                 stringa += eventOfList.ToString();
                 stringa += "\n";
             }
-            stringa += "--------------------------------------";
+            
 
             return stringa;
         }

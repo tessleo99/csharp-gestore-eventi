@@ -9,21 +9,36 @@ EventSchedule EventScheduleUser = new EventSchedule(eventSchedule);
 Console.Write("Quanti eventi vuoi aggiungere nel tuo programma? ");
 int numbersOfEvent = int.Parse(Console.ReadLine());
 
-for (int i = 0; i < numbersOfEvent; i++)
-{
-    Console.Write("Che nome ha l'evento? ");
-    string eventName = Console.ReadLine();
+    for (int i = 0; i < numbersOfEvent; i++)
+        {
+            try 
+            { 
+                Console.Write($"Che nome ha il {i+1}° evento? ");
+                string eventName = Console.ReadLine();
 
-    Console.Write("Inserisci la data dell'evento (formato: dd/MM/yyyy): ");
-    string eventDate = Console.ReadLine();
+                Console.Write("Inserisci la data dell'evento (formato: dd/MM/yyyy): ");
+                string eventDate = Console.ReadLine();
 
-    Console.Write("Quante persone possono partecipare all'evento? ");
-    int seatsMax = int.Parse(Console.ReadLine());
+                Console.Write("Quante persone possono partecipare all'evento? ");
+                int seatsMax = int.Parse(Console.ReadLine());
 
-    Event EventUser = new Event(eventName, eventDate, seatsMax);
+                Event EventUser = new Event(eventName, eventDate, seatsMax);
 
-    EventScheduleUser.AddEvent(EventUser);
-}
+                EventScheduleUser.AddEvent(EventUser);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("ERRORE: " + ex.Message);
+            }
+     
+        }
+
+
+Console.WriteLine("Il numero di eventi nel programma è: " + EventScheduleUser.GetNumberOfEvent());
+
+Console.Write("Inserisci una data per sapere che eventi ci saranno (formato: dd/MM/yyyy): ");
+string eventScheduleDate = Console.ReadLine();
+EventScheduleUser.listEventSameDate(eventScheduleDate);
 
 Console.WriteLine(EventScheduleUser.ToString());
 

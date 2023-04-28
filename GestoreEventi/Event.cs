@@ -17,13 +17,26 @@ namespace GestoreEventi
         //CONSTRUCTOR
         public Event (string eventName,  string eventDateString, int seatsMax, int seatsBooked = 0)
         {   
-            if (seatsMax  <= 0) 
+
+            if (eventName == "")
+            {
+                throw new Exception("Inserisci un nome per l'evento!");
+                Console.Write("Reinserisci un nome");
+            }
+            this.eventName = eventName;
+
+            this.eventDate = DateTime.Parse(eventDateString);
+            if (eventDate < DateTime.Now)
+            {
+                throw new Exception("L'evento è già passato: te lo sei perso?!");
+            }
+
+            if (seatsMax <= 0)
             {
                 throw new Exception("Il numero massimo di posti inserito non è valido perchè è un numero negativo (o uguale a 0)");
             }
-            this.eventName = eventName;
-            this.eventDate = DateTime.Parse(eventDateString);
             this.seatsMax = seatsMax;
+
             this.seatsBooked = seatsBooked; 
         }
 
@@ -53,7 +66,7 @@ namespace GestoreEventi
         {
             if (newEventName == "")
             {
-                throw new ArgumentException("Inserisci un nome per l'evento!");
+                throw new Exception("Inserisci un nome per l'evento!");
             }
             this.eventName = newEventName;
         }
