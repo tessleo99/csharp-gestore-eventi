@@ -92,7 +92,9 @@ namespace GestoreEventi
                 else
                 {
                     seatsBooked = newSeatsBookeed;
+                    int seatsAvaliable = seatsMax - seatsBooked;
                     Console.WriteLine("I posti prenotati sono: " + seatsBooked);
+                    Console.WriteLine("I posti disponibili sono: " + seatsAvaliable);
                 } 
 
             }
@@ -119,7 +121,9 @@ namespace GestoreEventi
                 } else
                 {
                     seatsBooked -= minumSeatsBooking;
+                    int seatsAvaliable = seatsMax - seatsBooked;
                     Console.WriteLine("I posti prenotati sono: " + seatsBooked);
+                    Console.WriteLine("I posti disponibili sono: " + seatsAvaliable);
                 }
             }
         }
@@ -127,7 +131,7 @@ namespace GestoreEventi
         public override string ToString()
         {
             string infoEvent =
-               $"Info Evento: " + eventDate.ToString("dd/MM/yyyy") + "-" + eventName;
+               $"Info Evento: {eventDate.ToString("dd/MM/yyyy")} - {eventName}";
             return infoEvent;
                 
         }
